@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<script>
+
+    valor_dado1 = getRandomIntInclusive(1, 6);
+    valor_dado2 = getRandomIntInclusive(1, 6);
+    valor_dado3 = getRandomIntInclusive(1, 6);
+    valor_dado4 = getRandomIntInclusive(1, 6);
+    resultado1 = valor_dado2 + valor_dado1;
+    resultado2 = valor_dado3 + valor_dado4;
+
+    function mostraVencedor() {
+
+        if (resultado1 > resultado2) {
+            document.write("O vencedor foi o jogador " + resultado1 + valor_dado1 + valor_dado2);
+        } else if (resultado2 > resultado1) {
+            document.write("O vencedor foi o computador " + resultado2 + valor_dado3 + valor_dado4);
+        }
+        else {
+            document.write("deu empate " + resultado1);
+        }
+    }
+
+    function mudaDado() {
+        document.getElementById("dado1").src = "imagens/dado" + valor_dado1 + ".png";
+        document.getElementById("dado2").src = "imagens/dado" + valor_dado2 + ".png";
+        document.getElementById("dado3").src = "imagens/dado" + valor_dado3 + ".png";
+        document.getElementById("dado4").src = "imagens/dado" + valor_dado4 + ".png";
+    }
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function timermudaDado() {
+        setTimeout(mudaDado,3000);
+    }
+    function timermostraresultado() {
+        setTimeout(mostraVencedor,3000);
+    }
+</script>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Roda dados JavaScript</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        Player
+        <img src="imagens/dado_rodando.gif" alt="dado vermelho rodando" style="width:100px;height:100px;" id="dado1">
+        <img src="imagens/dado_rodando.gif" alt="dado vermelho rodando" style="width:100px;height:100px;" id="dado2">
+        Robo
+        <img src="imagens/dado_rodando.gif" alt="dado vermelho rodando" style="width:100px;height:100px;" id="dado3">
+        <img src="imagens/dado_rodando.gif" alt="dado vermelho rodando" style="width:100px;height:100px;" id="dado4">
+        <br>
+        <input type="submit" value="Rodar dados!!" name="rodar" id="rodar">
+
+    </form>
+    <h3>
+        <script>
+            timermudaDado();
+            timermostraresultado();
+        </script>
+    </h3>
+
+
+</body>
+
+</html>
