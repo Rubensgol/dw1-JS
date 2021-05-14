@@ -11,12 +11,12 @@
     function mostraVencedor() {
 
         if (resultado1 > resultado2) {
-            document.write("O vencedor foi o jogador " + resultado1 + valor_dado1 + valor_dado2);
+            alert("O vencedor foi o jogador com " + valor_dado1 + " + " + valor_dado2 + " = " + resultado1);
         } else if (resultado2 > resultado1) {
-            document.write("O vencedor foi o computador " + resultado2 + valor_dado3 + valor_dado4);
+            alert("O vencedor foi o computador com " + valor_dado3 + " + " + valor_dado4 + " = " + resultado2);
         }
         else {
-            document.write("deu empate " + resultado1);
+            alert("deu empate " + resultado1);
         }
     }
 
@@ -32,10 +32,12 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     function timermudaDado() {
-        setTimeout(mudaDado,3000);
+        setTimeout('mudaDado()', 3000);
+
     }
-    function timermostraresultado() {
-        setTimeout(mostraVencedor,3000);
+    function timermostraResultado() {
+        setTimeout('mostraVencedor()', 4000);
+
     }
 </script>
 <html>
@@ -60,11 +62,9 @@
     <h3>
         <script>
             timermudaDado();
-            timermostraresultado();
+            timermostraResultado()
         </script>
     </h3>
-
-
 </body>
 
 </html>
